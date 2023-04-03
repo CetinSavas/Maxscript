@@ -1,0 +1,2 @@
+# Maxscript
+Various Maxscript files
