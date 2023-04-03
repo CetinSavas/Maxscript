@@ -13,19 +13,17 @@ theLayerName="SOCKETS"
 LayerManager.newLayerFromName theLayerName
 theNewLayer=LayerManager.getLayerFromName theLayerName
 theNewLayer.current=true
+-- get root node function
 	 fn getRoot node = (
-  --Check if the node passed to the function is a valid node.
   if isvalidnode node do 
   (
-    --Loop through the hierarchy until the current node's parent is undefined (i.e. rootnode)
     while node.parent != undefined do node = node.parent; 
-    --Return the rootnode
     node
   )
 )
 
 
-
+--  collect roots of scene
 for o in objects do 
 (
 
@@ -33,20 +31,22 @@ for o in objects do
 	appendIfUnique masterArray theParrent
 
 )
+
 deselect
+--  select root nodes
 for m=1 to masterArray.count do 
 (
 	selectmore masterArray[m]
 )
-
+-- alseo select children
 for i in selection do
 (
 selectmore i.children
 )
-
+-- store hiearrchy in array for later use
 childHiearchy= $selection as array
 deselect
-
+-- create socket per object in child hiearchy
 for o in childHiearchy do 
 (
 	Socket=Point()
@@ -58,14 +58,12 @@ for o in childHiearchy do
 	tempParent=o.parent
 	o.parent=undefined
 	Socket.transform=o.transform
--- 	Socket.position=o.position
--- 	Socket.rotation=o.rotation
 	o.parent=tempParent
 
 	Append sockeyHiearchy Socket
 	
 )
-
+-- recreate same  hiearchy in "childHiearcy" for sockets
 for i=1 to childHiearchy.count do
 (
 	if childHiearchy[i].parent!=undefined then 

@@ -4,7 +4,7 @@ sel_Ar=#()
 fn distanceSelect selAr distVar =
 
 (
-	--Copy script and edit given number before execution
+	
 	--define an  empty arrray to collect small objects
 	ArDel=#()
 	--proccess selAr

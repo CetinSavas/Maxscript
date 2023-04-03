@@ -6,14 +6,14 @@ If you want to fix scales of a hieararch select the root object and press "Shift
 */	
 	if selection.count >=  1 then 
 	(
-	--undo off
+
 		( 
-			
+-- 			define arrays
 			selar=#()
 			selmst=#()
 			mirsel=#()
 			selar= $selection as array
-			
+-- 		explode groups 		
 		for j=1 to selar.count do 
 		(
 			try
@@ -29,7 +29,7 @@ If you want to fix scales of a hieararch select the root object and press "Shift
 		
 
 		)
-
+--  create array for selection parents and unparent all the selection
 		for k=1 to selar.count do
 				(
 					 
@@ -40,7 +40,8 @@ If you want to fix scales of a hieararch select the root object and press "Shift
 		
 		for i=1 to selar.count do
 			(	if NOT isGroupMember selar[i] then 
-				(
+				(			
+-- 					 check if transform mirror applied
 							if selar[i].transform[1][1]<0 or selar[i].transform[2][2]<0 or selar[i].transform[3][3]<0 then 
 							(
 								
@@ -74,12 +75,13 @@ If you want to fix scales of a hieararch select the root object and press "Shift
 								MirZ=true
 								)
 								
-			
+-- 								correct transforms
 								thePos=selar[i].pos
 								selar[i].transform=selar[i].transform * (Matrix3 [sx,0,0] [0,sy,0] [0,0,sz] [0,0,0] )
 								selar[i].pos=[0,0,0]
 							  	resetxform selar[i]
 								selar[i].pos=thePos
+-- 								apply mirror modifier per negative transformed axis
 								if MirX==true do 
 								(
 									theMirrorX=mirror ()
@@ -103,24 +105,26 @@ If you want to fix scales of a hieararch select the root object and press "Shift
 								selar[i].parent=selmst[i]
 			
 							)
+-- 							if there is no mirror transform
 							else
 								(
 								tempObj=selar[i]
 												
 								PTnew= PointHelperObj()
 								PTnew.transform = tempObj.transform
-			
+-- 								correct placeholder point scale
 								PTnew.scale= [1,1,1]
+-- 								move the object to origin and fix rotation before reset xform
 								in coordsys world tempObj.pos= [0,0,0]
 								in coordsys world tempObj.rotation= (quat 0 0 0 1)
 								resetxform tempObj
-								--maxOps.CollapseNode tempObj off
+								
 								tempObj.transform =  PTnew.transform
 								
 								PTnew.wirecolor = red
-								--delete PTnew
 								
-								Print (i*100.0/selar.count)
+								
+								
 								clearUndoBuffer()
 								selar[i].parent=selmst[i]
 								delete PTnew

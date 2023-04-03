@@ -5,6 +5,7 @@ A tool for faster processing of cad files.
 
 try (DestroyDialog rlCADWorkshop) catch()
 
+-- polygon cleaner function
 fn fnPolyCleaner =
 (
 	if selection.count>=1 do 
@@ -18,20 +19,19 @@ fn fnPolyCleaner =
 				toPoly.requirePlanar = on
 				maxOps.CollapseNodeTo o 1 off
 				o.buttonOp #RemoveIsoVerts 
-				--subobjectLevel=1
-				--polyOp.setVertSelection o #{1..polyOp.getNumVerts o}
+			
 				o.weldThreshold=0.0001
 				polyop.weldVertsByThreshold o  #{1..polyOp.getNumVerts o}
-				--local sel=o.baseobject;
-				--o.wireColor=yellow
-
+			
 			)
 		)
 	)
 )
 
+-- align pivot to selected faces' normal.
 fn fnAlignTwoNormal node face1:1 face2:2 face3:3 = if  (isKindOf node Editable_Poly) or (isKindOf node Editable_mesh) do 
-(
+(	
+-- 	get face normals
 	if isKindOf node Editable_Poly do 
 	(
 	n1=polyOp.getFaceNormal node face1
@@ -46,12 +46,14 @@ fn fnAlignTwoNormal node face1:1 face2:2 face3:3 = if  (isKindOf node Editable_P
 	p2=meshOp.getFaceCenter node face2 
 	n3=getFaceNormal node face3
 	)
+-- 	calculate pivot direction
 	zV=normalize n1 
 	yV=normalize n3
 	xV=normalize (cross yV zV )
 	yV=normalize (cross zV xV )
+-- 	calculate pivot position
 	thePos=(p1+p2)/2
-	
+-- 	create matric from normals and position
 	theMatrix=Matrix3 xV Yv Zv thePos
 
 	itm = theMatrix* (inverse node.transform)
@@ -62,11 +64,12 @@ fn fnAlignTwoNormal node face1:1 face2:2 face3:3 = if  (isKindOf node Editable_P
 	node.transform
 
 ) 
+-- align pivots to two selected face normals and positions
 fn fnAlignPivotToSelCenter node type:#z_up= if (isKindOf node Editable_Poly )Or (isKindOf node Editable_mesh )do 
 (
-	
-	if isKindOf node Editable_Poly do 
 
+-- 	get face normals	
+	if isKindOf node Editable_Poly do 
 	(
 	aBitAr=node.getSelection #face 
 	num_faces=polyop.getNumFaces node
@@ -112,6 +115,7 @@ fn fnAlignPivotToSelCenter node type:#z_up= if (isKindOf node Editable_Poly )Or 
 		c=theCenter/(aBitAr.numberSet as float)
 		n=getFaceNormal node firstIndex
 	)
+-- 	calculate pivot orientation
 	ftm=translate (MatrixFromNormal n) c 
 	case of 
 	(
@@ -126,6 +130,7 @@ fn fnAlignPivotToSelCenter node type:#z_up= if (isKindOf node Editable_Poly )Or 
 
 	node.transform
 )
+
 fn fnAlignPivotToFaceNormal node face1:1 face2:2 type:#z_up = if isKindOf node Editable_Poly do 
 (
 	faceCenter1=polyOp.getFaceCenter node face1
@@ -146,19 +151,19 @@ fn fnAlignPivotToFaceNormal node face1:1 face2:2 type:#z_up = if isKindOf node E
 
 	node.transform
 )
+--replace instances
 fn fnReplaceIns sel1 ar1 =
 (
  for i in ar1 do 
 	(
 		 	instanceReplace i sel1 
-		 	--i.name=uniqueName (sel1.name)
 		 	i.wirecolor=(color 213 154 229)
 	)
 )
+-- reset Xform function 
 	fn fnResetXformPlus selar=
 (	if selar.count >=  1 then 
 	(
-	--undo off
 		( 
 			
 			
@@ -322,13 +327,7 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
     pickbutton pbtnInsMaster	"Pick Instance"				pos:[25,380]	width:120 height:20 tooltip:"Pick an object as instance template"
 	button btnReplace			"Replace Selection" 		pos:[25,410]	width:120 height:20 tooltip:"Replace selection with instances"
 	)
-/* 	group "Spline Tools" 
-		(
-	    -- Group body.
- 		Button btnReverse 	"Correct Reversed Shape" 	pos:[20,415] 	width:120 height:20 tooltip:"Correct the vertex order of selected shape"
-		Button btnCreate 	"Create Spline" 			pos:[20,445]	width:120 height:20 tooltip:"Create Spline from the selected  shape"
-		Button btnCMid		"Create on Pivots"			pos:[20,475]	width:120 height:20 tooltip:"Create Spline from pivot positions of selected objects"
-		) */
+
 	group "SplineExtras"
 		(
 			timer tick_tock interval:50 active:false 
@@ -527,6 +526,7 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 		)
 	)
 
+-- slice Polygons for creating mid points
 	on btnSlice pressed do 
 	(	tick_tock.active=false
 		if selection.count==1 and (isKindOf $ Editable_Poly OR isKindOf $ Editable_mesh) then 
@@ -541,6 +541,7 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 		)
 		else (messageBox "Select a Polygon or Mesh Object")
 	)
+--  slice selected polygons	
 	on btnInSlice pressed do 
 	(	tick_tock.active=false
 		if selection.count==1 and (isKindOf $ Editable_Poly OR isKindOf $ Editable_mesh) then 
@@ -555,6 +556,8 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 		)
 		else (messageBox "Select a Polygon or Mesh Object")
 	)
+
+-- create a new spline from cut created points
 	on btnMakeSpline pressed do 
 	(	
 		
@@ -605,6 +608,8 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 			)
 		)
 	)
+
+-- 	timer for checking cuts
 	on tick_tock tick do 
 	(	
 		if isKindOf $ Editable_Poly do
@@ -633,7 +638,7 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 				)
 		)
 	)
-
+-- clean the unused point heplers if procedure fails
 	on btnClrResidue pressed do 
 	(
 

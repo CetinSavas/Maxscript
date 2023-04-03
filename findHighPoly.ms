@@ -1,6 +1,6 @@
 /*
 Tool to find objecs with higher polycount from the given number.
-Works on selection.
+Works on selection and objects have to be editable poly.
  */
 
 

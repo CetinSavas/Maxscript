@@ -237,7 +237,7 @@ rollout rlRenameCAT "CAT Rename" width:120 height:355
 	  (messageBox "Select Both Feet")
  	)
  	
---*********************************
+
 )
 
 

@@ -5,7 +5,7 @@
 
 try (DestroyDialog rlExport) catch()
 
-
+-- fbx parameters
 AxisTxt="FBXExporterSetParam \"UpAxis\" \"Z\""
 AnimTxt="FBXExporterSetParam \"Animation\" True"
 EmbedTxt="FBXExporterSetParam \"EmbedTextures\" True"
