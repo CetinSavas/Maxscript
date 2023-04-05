@@ -1,6 +1,7 @@
-/* This script will export your non-hierarchical meshes for Unreal Engine 
-	"To Origin" checkbox will move the objects to scene center before export and carry them back after the export
-	"SM_ Name" checkbox will rename fbx files with prefix "SM_"
+/* This script will export your non-hierarchical meshes for Unreal Engine .
+	"To Origin" checkbox will move the objects to scene center before export and carry them back after the export.
+	"SM_ Name" checkbox will rename fbx files with prefix "SM_".
+	Works on selection.
 */
 
 try (DestroyDialog rlExport) catch()

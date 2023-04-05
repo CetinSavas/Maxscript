@@ -38,12 +38,12 @@ for m=1 to masterArray.count do
 (
 	selectmore masterArray[m]
 )
--- alseo select children
+-- alseo select children of roots
 for i in selection do
 (
 selectmore i.children
 )
--- store hiearrchy in array for later use
+-- store object hiearrchy in array for later use
 childHiearchy= $selection as array
 deselect
 -- create socket per object in child hiearchy
@@ -63,7 +63,7 @@ for o in childHiearchy do
 	Append sockeyHiearchy Socket
 	
 )
--- recreate same  hiearchy in "childHiearcy" for sockets
+-- recreate same  hiearchy in scene for "childHiearcy" for sockets
 for i=1 to childHiearchy.count do
 (
 	if childHiearchy[i].parent!=undefined then 

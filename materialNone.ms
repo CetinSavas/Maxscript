@@ -1,4 +1,4 @@
-/* Clean material from selected objects */
+/* Remove material from selected objects */
 
 for o in selection do 
 (

@@ -1,5 +1,5 @@
 /* 
-Converts Physical Material to Standar material.
+Converts Physical Material to Standard material.
 Currently only keeps diffuse channel.
 */
 for o in scenematerials do 
