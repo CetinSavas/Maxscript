@@ -1,5 +1,6 @@
 /* selects objecs below certain size */
 try (DestroyDialog selBySize) catch ()
+
 dist_Var=10
 sel_Ar=#()
 fn distanceSelect selAr distVar =
