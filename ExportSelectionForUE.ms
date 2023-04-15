@@ -16,7 +16,7 @@ NameTxt="theSavePath=thePath+"+"\"\\\\\""+"+\"SM_\"+o.name+\".fbx\" "
 
 
 
-rollout rlExport "Export" width:140 height:230
+rollout rlExport "Export" width:140 height:190
 (
 	radiobuttons rbAxis "Axis" labels:#("Y","Z") default:2 collumns:2 tooltip:"UpAxis Select"
   	checkbox 	 cbAnim "Animations" checked:true tooltip:"Export Animations"

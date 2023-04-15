@@ -324,7 +324,7 @@ rollout rlCADWorkshop "CAD Workshop" width:170 height:680
 	)
 	group "Instance Tools" (
 	    -- Group body.
-    pickbutton pbtnInsMaster	"Pick Instance"				pos:[25,380]	width:120 height:20 tooltip:"Pick an object as instance template"
+    pickbutton pbtnInsMaster	"Pick Instance Target"				pos:[25,380]	width:120 height:20 tooltip:"Pick an object as instance template"
 	button btnReplace			"Replace Selection" 		pos:[25,410]	width:120 height:20 tooltip:"Replace selection with instances"
 	)
 

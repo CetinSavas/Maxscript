@@ -1,7 +1,7 @@
 /* 
-Script Resets the scale of selected object while preseerving hieararchy.
+Script Resets the scale of selected object while preseerving hierarchy.
 For max versions that are prior to introduction of  "keep normals" function in xform modifier, this one uses multiple mirror modifiers to keep object normals.
-If you want to fix scales of a hieararch select the root object and press "Shift/Ctrl(older versions)+PageDown" then run the script.
+If you want to fix scales of a hierarchy select the root object and press "Shift/Ctrl(older versions)+PageDown" then run the script.
 
 */	
 	if selection.count >=  1 then 

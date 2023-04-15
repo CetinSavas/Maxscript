@@ -25,7 +25,7 @@ fn distanceSelect selAr distVar =
 			-- sort dist_ar to find maximum dimension
 			sort dist_ar
 			-- find maximum dimension	
-			tempdist = (dist_ar[dist_ar.count]) as float
+			tempdist = (dist_ar[1]) as float
 				-- if maximum dimension is less then or equal to certain number append current object to ArDel array
 			if tempdist<=distVar then append ArDel selAr[i]
 			)
