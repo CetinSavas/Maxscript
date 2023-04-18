@@ -1,5 +1,6 @@
 # Maxscript
 Various Maxscript files
+
  AdvancedDivideSpline.ms: Creates a new shape from selected shape object which is divided on equal lengthed linear segments, on close approximation with the original shape.. Just like the normalize spline modifier but more precise on divident lengths.
  
  ![image](https://user-images.githubusercontent.com/99070284/232242065-b5b797b6-93f8-4b34-b1c1-cfe71fbed744.png)
