@@ -1,0 +1,8 @@
+name "Merge_UI"
+version 4
+
+extract to "$temp" 
+
+run "install.ms"
+drop "install.ms"
+clear temp
