@@ -1,0 +1,11 @@
+<Buttons>
+  <colorName ColorID="White" Red="255.0" Green="255.0" Blue="255.0" />
+  <colorName ColorID="Red" Red="255.0" Green="0.0" Blue="0.0" />
+  <colorName ColorID="Black" Red="0.0" Green="0.0" Blue="0.0" />
+  <colorName ColorID="Yellow" Red="255.0" Green="255.0" Blue="0.0" />
+  <colorName ColorID="Green" Red="0.0" Green="107.0" Blue="0.0" />
+  <colorName ColorID="Gray1" Red="0.0" Green="0.0" Blue="255.0" />
+  <colorName ColorID="Gray2" Red="60.0" Green="60.0" Blue="60.0" />
+  <colorName ColorID="Gray3" Red="136.0" Green="136.0" Blue="136.0" />
+  <colorName ColorID="Gray4" Red="176.0" Green="176.0" Blue="176.0" />
+</Buttons>
