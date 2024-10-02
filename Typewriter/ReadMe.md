@@ -10,15 +10,4 @@ TypeWriter.png is the main bitmap where the generated material is drawn using th
 
 The .psd file is for changing fonts or the alphabet. After modifying the file, it must be exported as a .png with the alpha channel preserved, ensuring the file retains its original name.
 
-Let me know if you need further adjustments!
-
-
-
-
-
-
-
-How to use VSAssignPro?
-
-Can I add new fonts?
 ![image](https://github.com/user-attachments/assets/9f00f76a-275c-4e4f-a821-5ad4f4368870)
