@@ -1,5 +1,6 @@
 /* 
-Savas Cetin 2024 
+Savas Cetin 2024
+https://www.artstation.com/savascetin
  */
 try(DestroyDialog rlPlaneOnSurface ) catch()
 --  Create character set and widths
