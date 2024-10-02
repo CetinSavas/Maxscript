@@ -44,7 +44,11 @@ Various Maxscript files
   
   ![image](https://user-images.githubusercontent.com/99070284/232245222-6149a646-e590-4973-a826-c5265df361f4.png)
 
-  CADWorkshop.ms. A tool for processing CAD files imported to max. Shortcuts for selecting objects with same number of vertices, Intance selection, pivot alignment, ResetingForm with orientation preserverd after pivot alignemnt. Shortcuts for quadrifying correcting non plananr polygons, and material removal. and other group of tools for instance replacement. A toolset for  converting pipe models to spline objects (Process modifes the topology, so it is always good practice to backup the original pipe.). spline conversion works on Editable Poly object. last group is freezing and unfreezing the object.
+CADWorkshop.ms is a tool designed for processing CAD files imported into 3ds Max. It provides several functionalities including shortcuts for selecting objects with the same number of vertices, instance selection, and pivot alignment. The tool also offers a feature for resetting the form while preserving its orientation after pivot alignment.
+
+Additional features include shortcuts for quadrifying (correcting non-planar polygons) and removing materials, as well as tools for instance replacement. Another functionality converts pipe models into spline objects. (Note: this process modifies the topology, so it's advisable to back up the original pipe.) The spline conversion works on Editable Poly objects.
+
+The last set of tools is for freezing and unfreezing objects.
   
   ![image](https://user-images.githubusercontent.com/99070284/232245704-f1497ec8-cb05-49d5-8dc0-601be4477709.png)
 
