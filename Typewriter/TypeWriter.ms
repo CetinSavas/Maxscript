@@ -86,13 +86,14 @@ max modify mode
     
     select arrayofPlanes[i]
     obj=selection
+    convertToPoly obj
     theMod=Unwrap_UVW()
     addModifier obj theMod
     theMod.setTVSubObjectMode 3
     theMod.selectFaces #{1}
-    theMod.mappingMode 1 
-    theMod.mappingAlign 3 
-    theMod.mappingMode 0 
+    --theMod.mappingMode 1 
+    --theMod.mappingAlign 3 
+    --theMod.mappingMode 0 
     widthLoc=arrayofPositions[i]
     theMod.scaleSelectedXY 0.1 0.1 [0.0,0.0,0.0]
     theMod.scaleSelectedXY  (widthBlock[widthLoc[2]][widthLoc[1]]) 1.0 [0.05,0.05,0]
