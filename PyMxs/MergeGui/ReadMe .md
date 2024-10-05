@@ -19,5 +19,5 @@ Export the selected geometry object, selecting only one object at each export, u
 * Click on the thumbnail of the object you want to import and place.
 * Click on either your selected object or anywhere in the scene to create instances of the imported object.
 * Right-click to abort the instance creation. If you haven’t clicked anywhere, the imported object will be placed at the coordinates (0, 0, 0) with no rotation.
-* Whenever you put some text at the text area labeled search Gui will filter out buttons and tabs that have search string in it.
+* Whenever you put some text at the text area labeled search Gui will filter out buttons and tabs that have search string in it. Make sure that text area is empty after you done your search.
 * ![image](https://github.com/user-attachments/assets/7d6e84a0-3783-43f2-b390-b8207e3937b5)
