@@ -1,6 +1,12 @@
+"""
+Savas Cetin 2024.
+https://artstation.com/savascetin
+tested on 3ds max 2024.2 .
+does not support max 2025.
+replace PySide2 with PySide6 .
+Use it on your own risk.
+"""
 import subprocess
-# from PySide2 import QtCore
-# from PySide2 import QtGui
 from PySide2 import QtWidgets, QtCore, QtGui
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import *
@@ -31,6 +37,7 @@ class RunMergeGui(QtWidgets.QDockWidget):
 		self.setWindowTitle('Merge Gui')
 		self.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea)
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+		# set size
 		self.setMinimumWidth(380)
 		self.setMinimumHeight(400)
 		self.resize(380,600)
