@@ -73,6 +73,7 @@ class RunMergeGui(QtWidgets.QDockWidget):
 		self.text_area = QLineEdit()
 		self.text_area.textChanged.connect(self.filter_tabs)
 		self.layout.addWidget(self.text_area,1,1)
+		# address buttons
 		self.tabs_buttons={}
 
 		self.maintab=QtWidgets.QTabWidget()
@@ -287,7 +288,6 @@ class RunMergeGui(QtWidgets.QDockWidget):
 	def filter_tabs(self):
         # Get the text from the text area
 		filter_text = str(self.text_area.text())
-		# filter_text = self.text_area.toPlainText().lower()
 
 		# Iterate over each tab and its buttons
 		for i in range(self.maintab.count()):
@@ -305,8 +305,8 @@ class RunMergeGui(QtWidgets.QDockWidget):
 					match_button= True
 				else:
 					match_button = False
-					# break
-				#  hide buttons on top o searched buttons
+					
+				#  hide and disable buttons  that does not have the text
 				button.setVisible(match_button)
 				button.setEnabled(match_button)
 
