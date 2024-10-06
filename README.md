@@ -1,6 +1,7 @@
 # Maxscript
 Various Maxscript files
-pymxs/mergegui and typrwriter/ has their own readme.md's
+
+! pymxs/mergegui and typrwriter/ has their own readme.md's
 
  AdvancedDivideSpline.ms: Creates a new shape from selected shape object which is divided on equal lengthed linear segments, on close approximation with the original shape.. Just like the normalize spline modifier but more precise on divident lengths.
  
